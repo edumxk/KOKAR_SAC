@@ -1,0 +1,3 @@
+Minha tela inicial: {{$dados}}
+
+
