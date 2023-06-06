@@ -15,10 +15,9 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('chamados.dashboard');
 });
 
 Route::get('/admin/{post}', [IndexController::class, 'show']);
 
-
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
