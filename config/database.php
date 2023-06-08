@@ -93,6 +93,31 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'oracle' => [
+            'driver'         => 'oracle',
+            'tns'            => env('DB_TNS', '
+                (DESCRIPTION =
+                    (ADDRESS_LIST =
+                    (ADDRESS = (PROTOCOL = TCP)(HOST = 172.168.1.25)(PORT = 1521))
+                    )
+                    (CONNECT_DATA =
+                    (SERVICE_NAME = WINT)
+                    )
+                )
+            '),
+            'host'           => env('DB_HOST_ORACLE', ''),
+            'port'           => env('DB_PORT_ORACLE', '1521'),
+            'database'       => env('DB_DATABASE_ORACLE', ''),
+            'username'       => env('DB_USERNAME_ORACLE', ''),
+            'password'       => env('DB_PASSWORD_ORACLE', ''),
+            'charset'        => env('DB_CHARSET', 'AL32UTF8'),
+            'prefix'         => env('DB_PREFIX', ''),
+            'prefix_schema'  => env('DB_SCHEMA_PREFIX', ''),
+            'edition'        => env('DB_EDITION', 'ora$base'),
+            'server_version' => env('DB_SERVER_VERSION', '11g'),
+        ],
+
+
     ],
 
     /*

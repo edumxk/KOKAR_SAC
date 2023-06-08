@@ -1,14 +1,24 @@
 @extends('components.header')
 
 @section('content')
-    <div class="card" style="width: 18rem;">
+    <div class="container-fluid">
+        <div class="row">
 
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            <button class="btn btn-danger">teste</button>
-        </div>
+
+        @forelse($chamados as $c)
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $c->nome }}</h5>
+                    <p class="card-text">{{ $c->cargo }}</p>
+                    <p class="card-text">{{ $c->setor }}</p>
+                    <a href="#" class="btn btn-primary">Ver</a>
+                    <button class="btn btn-danger">Editar</button>
+                </div>
+            </div>
+        @empty
+            <p>Não há chamados</p>
+        @endforelse
+
     </div>
 @endsection
 
