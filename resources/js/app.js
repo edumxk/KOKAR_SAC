@@ -1,4 +1,6 @@
 import './bootstrap';
-import teste from "./teste.js";
-teste();
+import alterarTema from "./teste.js";
+alterarTema();
+
+
 

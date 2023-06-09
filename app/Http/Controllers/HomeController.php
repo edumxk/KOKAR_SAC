@@ -25,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $chamados = Chamado::getChamados();
-        return view('chamados.dashboard', compact('chamados'));
+        $usuario = ['tema' => 'dark'];
+        return view('chamados.dashboard', compact('chamados', 'usuario'));
     }
 }

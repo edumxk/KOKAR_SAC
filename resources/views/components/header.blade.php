@@ -1,10 +1,10 @@
 @extends('welcome')
 @section('header')
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img src="{{ asset( '/img/logos/logo-kokar5.png') }}" alt="Logo Kokar Tintas" height="30">
+                    <img src="{{ asset('/img/Logo-Kokar5.png') }}" alt="Logo Kokar Tintas" height="80" >
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

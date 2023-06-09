@@ -11,14 +11,17 @@
                     <h5 class="card-title">{{ $c->nome }}</h5>
                     <p class="card-text">{{ $c->cargo }}</p>
                     <p class="card-text">{{ $c->setor }}</p>
-                    <a href="#" class="btn btn-primary">Ver</a>
+                    <a href="#" class="btn btn-secondary">Ver</a>
                     <button class="btn btn-danger">Editar</button>
                 </div>
             </div>
         @empty
             <p>Não há chamados</p>
         @endforelse
-
+            {{ $usuario['tema'] }}
     </div>
 @endsection
+<script>
+    document.body.setAttribute('data-bs-theme', '{{ $usuario['tema'] }}')
 
+</script>
