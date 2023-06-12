@@ -19,7 +19,7 @@
                     <p class="card-text">Lote {{ $c->numlote }}</p>
                     <p class="card-text"> DATA: {{ date('d/m/Y h:i:s' , strtotime($c->dtabertura)) }}</p>
                     <p class="card-text">{{ $c->problema }}</p>
-                    <a href="#" class="btn btn-secondary">Ver</a>
+                    <a href="{{ route('chamados.chamado', ['numrat' => $c->numrat ]) }}" class="btn btn-secondary">Ver</a>
                     <button class="btn btn-danger">Editar</button>
                 </div>
             </div>

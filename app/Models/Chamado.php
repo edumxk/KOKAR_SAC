@@ -8,9 +8,25 @@ use Illuminate\Support\Facades\DB;
 
 class Chamado extends Model
 {
-    public static function getChamados()
+    public static function getChamado($numrat)
     {
-        return '';
+        $query = DB::connection('oracle')->table('paralelo.ratc as c')
+            ->select(DB::raw('UPPER(l.parecer) AS parecer2'),
+                DB::raw('UPPER(c.problema) AS problema2'),
+                'c.*', 'i.*', 'l.*', 'p.descricao as produto', 'g.categoria')
+            ->leftJoin('paralelo.rati as i', 'i.numrat', '=', 'c.numrat')
+            ->leftJoin('paralelo.ratalab as l', function ($join) use ($numrat) {
+                $join->on('l.numrat', '=', 'c.numrat')
+                    ->where('l.id', DB::raw("(select max(id) from paralelo.ratalab where numrat = $numrat)"));
+            })
+            ->leftJoin('kokar.pcprodut as p', 'p.codprod', '=', 'i.codprod')
+            ->leftJoin('kokar.pccategoria as g', function ($join) {
+                $join->on('g.codcategoria', '=', 'p.codcategoria')
+                    ->on('g.codsec', '=', 'p.codsec');})
+            ->where('c.numrat', $numrat)
+            ->get();
+
+        return $query;
     }
 
     public static function getChamadosBusca($search){
@@ -23,11 +39,18 @@ class Chamado extends Model
                 ->orderBy('dtabertura');
         }, 'subquery');
 
+        //join ->join('kokar.pcprodut p', 'i.codprod', '=', 'p.codprod')
+
+
+
         if ($search) {
-            $query->where('problema', 'like', '%' . $search . '%');
-            $query->orWhere('numlote', 'like', '%' . $search . '%');
+            $query->where(function ($query) use ($search) {
+                $query->where('problema', 'like', '%' . $search . '%')
+                    ->orWhere('numlote', 'like', '%' . $search . '%')->orderBy('dtencerramento', 'desc');
+
+            });
         }
-        return $query;
+        return $query->orderBy('dtencerramento', 'desc');
     }
 
     use HasFactory;

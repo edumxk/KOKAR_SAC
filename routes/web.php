@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChamadoControlller;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
@@ -22,4 +23,6 @@ Route::get('/old', function () {
 Route::get('/admin/{post}', [IndexController::class, 'show']);
 
 Route::get('/', [HomeController::class, 'index'])->name('chamados.dashboard');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('chamados.dashboard');
 
+Route::get('/chamado/{numrat}', [ChamadoControlller::class, 'index'])->name('chamados.chamado');
