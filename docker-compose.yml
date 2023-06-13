@@ -10,7 +10,7 @@ services:
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
-            - '${APP_PORT:-80}:80'
+            - '8080:80'
             - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
         environment:
             WWWUSER: '${WWWUSER}'
@@ -28,6 +28,8 @@ services:
             - meilisearch
             - mailpit
             - selenium
+        expose:
+            - '172.168.1.75:8080:8080'
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('codsetor')->nullable();
             $table->string('codcargo')->nullable();
-            $table->string('codfuncao')->nullable();
             $table->string('codnivel')->nullable();
             $table->string('codusuarioold')->nullable()->unique();
             $table->string('usuario')->unique();

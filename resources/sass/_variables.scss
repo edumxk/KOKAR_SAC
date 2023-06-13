@@ -18,18 +18,18 @@ $green:   #198754;
 $teal:    #20c997;
 $cyan:    #0dcaf0;
 $white:   #f0f0f0;
-$blue-500: #002895;
-$blue-600: #002495;
-$blue-700: #002495;
+$blue-500: #307cf3;
+$blue-600: #0011ff;
+$blue-700: #001c60;
 $gray-600: #6c757d;
-$blue-400: #003095;
+$blue-400: #286eff;
 
 [data-bs-theme="kokar"] {
     .navbar {
-        --bs-bg-light: #{$blue};
-        --bs-body-bg-rgb: #002695;
-        --bs-tertiary-bg: #002695;
-        --bs-color: blue(255);
+        --bs-bg-light: #{$white};
+        --bs-body-bg-rgb: #{$blue};
+        --bs-tertiary-bg: #{$blue-700};
+        --bs-color: #{$white};
     }
     --bs-body-color: var(--bs-white);
     --bs-body-color-rgb: #{to-rgb($white)};
@@ -43,11 +43,11 @@ $blue-400: #003095;
     }
 
     .btn-secondary {
-        --bs-btn-bg: #{mix($gray-600, $blue-400, .5)};
+        --bs-btn-bg: #{mix($gray-600, $blue-400, 50%)};
         --bs-btn-border-color: #{rgba($white, .25)};
-        --bs-btn-hover-bg: #{darken(mix($gray-600, $blue-400, .5), 5%)};
+        --bs-btn-hover-bg: #{darken(mix($gray-600, $blue-400, 50%), 5%)};
         --bs-btn-hover-border-color: #{rgba($white, .25)};
-        --bs-btn-active-bg: #{darken(mix($gray-600, $blue-400, .5), 10%)};
+        --bs-btn-active-bg: #{darken(mix($gray-600, $blue-400, 50%), 10%)};
         --bs-btn-active-border-color: #{rgba($white, .5)};
         --bs-btn-focus-border-color: #{rgba($white, .5)};
         --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
