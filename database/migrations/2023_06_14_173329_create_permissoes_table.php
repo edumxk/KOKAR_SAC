@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('permissoes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('rota');
             $table->string('descricao');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

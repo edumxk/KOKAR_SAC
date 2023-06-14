@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('chamados', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('codcli');
-            $table->enum('status');
-            $table->bigInteger('protocolo');
+            $table->enum('status', ['abertura', 'chamado', 'analise de produto', 'teste de aplicacao', 'laudo', 'tratativa', 'aprovacao', 'finalizado', 'cancelado', 'reprovado']);
+            $table->integer('protocolo')->unique();
             $table->foreign('protocolo')->references('protocolo')->on('formularios');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

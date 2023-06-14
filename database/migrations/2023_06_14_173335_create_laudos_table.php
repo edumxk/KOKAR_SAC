@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('testes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('protocolo');
+        Schema::create('laudos', function (Blueprint $table) {
+            $table->id();
+            $table->integer('protocolo')->unique();
             $table->foreign('protocolo')->references('protocolo')->on('chamados');
-            $table->integer('id_teste');
-            $table->foreign('id_teste')->references('id')->on('item_testes');
-            $table->string('descricao');
-            $table->timestamp('data_inicio');
-            $table->timestamp('data_fim');
-            $table->enum('status');
+            $table->text('descricao');
+            $table->boolean('is_procedente');
+            $table->boolean('is_finalizado');
+            $table->string('lote');
+            $table->integer('codprod');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('testes');
+        Schema::dropIfExists('laudos');
     }
 };

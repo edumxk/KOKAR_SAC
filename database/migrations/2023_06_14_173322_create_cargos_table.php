@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('formularios', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('protocolo');
-            $table->json('formulario')->nullable();
-            $table->string('status', 2);
+        Schema::create('cargos', function (Blueprint $table) {
+            $table->id();
+            $table->string('cargo', 50);
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('formularios');
+        Schema::dropIfExists('cargos');
     }
 };

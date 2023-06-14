@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('log_chamados', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('protocolo');
             $table->foreign('protocolo')->references('protocolo')->on('chamados');
-            $table->integer('id_user');
+            $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->enum('operacao');
-            $table->enum('status_anterior');
-            $table->enum('status_atual');
-            $table->timestamp('data_hora');
+            $table->enum('operacao', ['criar', 'alterar', 'excluir'])->comment('criar, alterar, excluir');
+            $table->enum('status_anterior', ['abertura', 'chamado', 'analise de produto', 'teste de aplicação', 'laudo', 'tratativa', 'aprovacao', 'finalizado', 'cancelado', 'reprovado']);
+            $table->enum('status_atual', ['abertura', 'chamado', 'analise de produto', 'teste de aplicação', 'laudo', 'tratativa', 'aprovacao', 'finalizado', 'cancelado', 'reprovado']);
             $table->text('detalhes');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

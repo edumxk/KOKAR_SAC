@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('permissoes_users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_permissao');
+            $table->id();
+            $table->unsignedBigInteger('id_permissao');
             $table->foreign('id_permissao')->references('id')->on('permissoes');
-            $table->integer('id_setor')->nullable();
-            $table->integer('id_cargo')->nullable();
-            $table->integer('id_user')->nullable();
+            $table->unsignedBigInteger('id_setor')->nullable();
+            $table->unsignedBigInteger('id_cargo')->nullable();
+            $table->unsignedBigInteger('id_user')->nullable();
             $table->foreign('id_user')->references('id')->on('users');
-            $table->enum('nivel');
+            $table->enum('nivel', ["0","1","2","3","4","5"]);
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

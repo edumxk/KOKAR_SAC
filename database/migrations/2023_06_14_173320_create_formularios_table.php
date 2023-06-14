@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('anexos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('protocolo');
-            $table->foreign('protocolo')->references('protocolo')->on('chamados');
-            $table->string('nome');
-            $table->string('caminho');
-            $table->timestamp('upload_at');
-            $table->enum('tipo');
+        Schema::create('formularios', function (Blueprint $table) {
+            $table->id();
+            $table->integer('protocolo')->unique();
+            $table->json('formulario')->nullable();
+            $table->enum('status', ["aberto", "fechado"])->default("aberto");
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('anexos');
+        Schema::dropIfExists('formularios');
     }
 };

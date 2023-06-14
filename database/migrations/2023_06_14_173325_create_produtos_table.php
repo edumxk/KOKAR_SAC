@@ -14,15 +14,16 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('produtos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('protocolo');
             $table->foreign('protocolo')->references('protocolo')->on('chamados');
-            $table->enum('tipo');
+            $table->enum('tipo', ['produto', 'tratativa']);
             $table->string('lote');
             $table->integer('codprod');
             $table->integer('qtd');
             $table->double('valor');
             $table->double('custo');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

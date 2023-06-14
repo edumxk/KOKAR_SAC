@@ -15,18 +15,20 @@ return new class extends Migration
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('user', 30)->unique();
             $table->string('name', 50);
-            $table->string('email', 50);
+            $table->string('email', 50)->unique();
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('tema', 20)->nullable();
-            $table->smallInteger('id_setor')->nullable();
+            $table->unsignedBigInteger('id_setor')->nullable();
             $table->foreign('id_setor')->references('id')->on('setores');
-            $table->smallInteger('id_cargo')->nullable();
+            $table->unsignedBigInteger('id_cargo')->nullable();
             $table->foreign('id_cargo')->references('id')->on('cargos');
-            $table->enum('nivel')->nullable();
+            $table->enum('nivel', ["0","1","2","3","4","5"])->nullable();
             $table->string('winthor_user', 30)->nullable();
-            $table->string('remember_token')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

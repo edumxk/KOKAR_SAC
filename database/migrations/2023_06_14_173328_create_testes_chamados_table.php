@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('tratativas', function (Blueprint $table) {
+        Schema::create('testes_chamados', function (Blueprint $table) {
             $table->id();
             $table->integer('protocolo');
             $table->foreign('protocolo')->references('protocolo')->on('chamados');
-            $table->enum('tipo');
-            $table->integer('id_produto')->nullable();
-            $table->foreign('id_produto')->references('id')->on('produtos');
-            $table->enum('tipo_secundario')->nullable();
-            $table->string('descricao')->nullable();
+            $table->unsignedBigInteger('id_teste');
+            $table->foreign('id_teste')->references('id')->on('testes');
+            $table->string('descricao');
+            $table->timestamp('data_inicio');
+            $table->timestamp('data_fim');
+            $table->enum('status', ['pendente', 'em andamento', 'finalizado']);
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tratativas');
+        Schema::dropIfExists('testes_chamados');
     }
 };

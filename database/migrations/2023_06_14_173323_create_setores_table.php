@@ -13,14 +13,11 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('analises', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('protocolo');
-            $table->foreign('protocolo')->references('protocolo')->on('chamados');
-            $table->enum('tipo');
-            $table->bigInteger('metodo');
-            $table->timestamp('data_analise');
-            $table->string('numlote');
+        Schema::create('setores', function (Blueprint $table) {
+            $table->id();
+            $table->string('setor', 50);
+            $table->boolean('is_ativo');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('analises');
+        Schema::dropIfExists('setores');
     }
 };

@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('laudos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('protocolo');
+        Schema::create('testes', function (Blueprint $table) {
+            $table->id();
+            $table->enum('tipo', ['qualidade', 'aplicação']);
             $table->text('descricao');
-            $table->boolean('is_procedente');
-            $table->boolean('is_finalizado');
-            $table->string('lote');
-            $table->integer('codprod');
+            $table->smallInteger('dias');
+            $table->smallInteger('horas');
+            $table->boolean('is_ativo');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('laudos');
+        Schema::dropIfExists('testes');
     }
 };

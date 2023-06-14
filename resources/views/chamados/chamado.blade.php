@@ -14,8 +14,8 @@
                         <a href="#" class="active"><i class="fa fa-home"></i><span>Formulário</span></a>
                         <a href="#"><i class="fa fa-briefcase"></i><span>Chamado</span></a>
                         <a href="#"><i class="fa fa-user-secret"></i><span>Análise Produto</span></a>
-                        <a href="#"><i class="fa fa-send"></i><span>Parecer Téc.</span>		</a>
-                        <a href="#"><i class="fa fa-send"></i><span>Ação Corretiva</span>		</a>
+                        <a href="#"><i class="fa fa-send"></i><span>Parecer Téc.</span></a>
+                        <a href="#"><i class="fa fa-send"></i><span>Ação Corretiva</span></a>
                         <div class="line"></div>
                     </nav>
                 </div>
