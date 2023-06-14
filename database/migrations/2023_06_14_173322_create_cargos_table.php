@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cargos', function (Blueprint $table) {
             $table->id();
             $table->string('cargo', 50);
+            $table->boolean('is_ativo');
             $table->timestamps();
         });
 
