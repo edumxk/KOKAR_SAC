@@ -6,7 +6,7 @@ services:
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
-        image: sail-8.2_oci19.19
+        image:  c43b93b899b9
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:

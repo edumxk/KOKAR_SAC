@@ -1,6 +1,7 @@
 import './bootstrap';
-import alterarTema from "./teste.js";
-alterarTema();
 
+import Alpine from 'alpinejs';
 
+window.Alpine = Alpine;
 
+Alpine.start();

@@ -29,7 +29,3 @@
     </div>
         {{ $paginator->appends(['search' => $search, 'perPage' => $paginator->perPage()])->render() }}
 @endsection
-<script>
-    document.body.setAttribute('data-bs-theme', '{{ $usuario['tema'] }}')
-
-</script>

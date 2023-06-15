@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Chamado;
 use Illuminate\Http\Request;
 
-class ChamadoControlller extends Controller
+class ChamadoController extends Controller
 {
     function index(Request $request){
         $numrat = $request->numrat;

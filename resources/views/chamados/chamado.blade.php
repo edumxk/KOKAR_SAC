@@ -37,14 +37,20 @@
 
             @endif
             @forelse($chamado as $c)
-            <tr>
-                <td>{{ ($c->numlote) }}</td>
-                <td>{{ ($c->codprod) }}</td>
-                <td>{{ ($c->produto) }}</td>
-                <td>{{ $c->qt }}</td>
-                <td>R$ {{ number_format($c->pvenda, 2, ',', '.') }}</td>
-                <td>{{ ($c->categoria) }}</td>
-            </tr>
+                @if(!is_null($c->numlote))
+                    <tr>
+                        <td>{{ ($c->numlote) }}</td>
+                        <td>{{ ($c->codprod) }}</td>
+                        <td>{{ ($c->produto) }}</td>
+                        <td>{{ $c->qt }}</td>
+                        <td>R$ {{ number_format($c->pvenda, 2, ',', '.') }}</td>
+                        <td>{{ ($c->categoria) }}</td>
+                    </tr>
+                @else
+                    <tr>
+                        <td colspan="6" class="text-center">Não há produtos</td>
+                    </tr>
+                @endif
                 @php
                     $total += $c->pvenda*$c->qt;
                 @endphp
