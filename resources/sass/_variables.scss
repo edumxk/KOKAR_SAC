@@ -1,57 +1,7 @@
 // Body
-$body-bg: #f8fafc;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
-
-$blue:    #002695;
-$indigo:  #6610f2;
-$purple:  #6f42c1;
-$pink:    #d63384;
-$red:     #dc3545;
-$orange:  #fd7e14;
-$yellow:  #ffc107;
-$green:   #198754;
-$teal:    #20c997;
-$cyan:    #0dcaf0;
-$white:   #f0f0f0;
-$blue-500: #307cf3;
-$blue-600: #0011ff;
-$blue-700: #001c60;
-$gray-600: #ffffff;
-$blue-400: #286eff;
-
-[data-bs-theme="kokar"] {
-    .navbar {
-        --bs-bg-light: #{$white};
-        --bs-body-bg-rgb: #{$blue};
-        --bs-tertiary-bg: #{$blue-700};
-        --bs-color: #{$white};
-    }
-    --bs-body-color: var(--bs-white);
-    --bs-body-color-rgb: #{to-rgb($white)};
-    --bs-body-bg: var(--bs-blue);
-    --bs-body-bg-rgb: #{to-rgb($blue)};
-    --bs-tertiary-bg: #{$blue-600};
-
-    .dropdown-menu {
-        --bs-dropdown-bg: #{mix($blue-500, $blue-600)};
-        --bs-dropdown-link-active-bg: #{$blue-700};
-    }
-
-    .btn-secondary {
-        --bs-btn-bg: #{mix($gray-600, $blue-400, 50%)};
-        --bs-btn-border-color: #{rgba($white, .25)};
-        --bs-btn-hover-bg: #{darken(mix($gray-600, $blue-400, 50%), 5%)};
-        --bs-btn-hover-border-color: #{rgba($white, .25)};
-        --bs-btn-active-bg: #{darken(mix($gray-600, $blue-400, 50%), 10%)};
-        --bs-btn-active-border-color: #{rgba($white, .5)};
-        --bs-btn-focus-border-color: #{rgba($white, .5)};
-        --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
-    }
-
-
-}

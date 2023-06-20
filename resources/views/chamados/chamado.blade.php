@@ -1,7 +1,8 @@
-@extends('components.header')
+@extends('dashboard')
 @php
     $total = 0;
 @endphp
+@section('title', 'RAT '.$numrat)
 @section('content')
 
     <h1>Rat nº {{ $numrat }}</h1>
@@ -62,8 +63,12 @@
                 <tr>
                     <th colspan="4" class="text-end">Total</th>
                     <th colspan="1" class="">R$ {{ number_format( $total, 2, ',', '.') }}</th>
+                    <th colspan="2" class=""></th>
                 </tr>
             @if($chamado[0])
+            <tr class="m-5">
+                <th colspan="7">Parecer</th>
+            </tr>
             <tr>
                 <th colspan="7">{{ $chamado[0]->parecer2 }}</th>
             </tr>

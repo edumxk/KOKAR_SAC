@@ -57,4 +57,13 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function toggle(Request $request): RedirectResponse
+    {
+        $request->user()->tema = $request->user()->tema == 'dark' ? 'light' : 'dark';
+
+        $request->user()->save();
+
+        return Redirect::route('alterarTema')->with('status', 'profile-updated');
+    }
 }

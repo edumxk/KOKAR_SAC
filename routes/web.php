@@ -18,13 +18,15 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 //Route::get('/dashboard', [HomeController::class, 'index'])->name('chamados.dashboard');
 
-Route::get('/', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('chamados.dashboard');
+Route::get('/', [HomeController::class, 'teste'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/chamado/{numrat}', [ChamadoController::class, 'index'])->middleware(['auth', 'verified'])->name('chamados.chamado');
+Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('chamados.dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/profile', [ProfileController::class, 'toggle'])->name('alterarTema');
 });
 
 require __DIR__.'/auth.php';

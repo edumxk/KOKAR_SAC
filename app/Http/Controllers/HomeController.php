@@ -25,10 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(request()->get('perPage')){
-            $perPage = request()->get('perPage');
-        }else
-            $perPage = 30;
+        $perPage = 30;
 
         $page = request()->get('page', 1);
         $offset = ($page - 1) * $perPage;
@@ -41,11 +38,17 @@ class HomeController extends Controller
         $results = $query->skip($offset)->take($perPage)->get();
 
         $paginator = new LengthAwarePaginator($results, $total, $perPage, $page);
-
+        $paginator->setPath('/dashboard');
         $paginator->appends(['search' => $search]); // Adiciona o parâmetro 'search' à paginação
 
         $chamados = $results;
+
+        return view('chamados.dashboard', compact('chamados', 'search', 'paginator', 'perPage'));
+    }
+
+    public function teste()
+    {
         $usuario = ['tema' => 'dark'];
-        return view('chamados.dashboard', compact('chamados', 'usuario', 'search', 'paginator', 'perPage'));
+        return view('dashboard', compact( 'usuario'));
     }
 }
