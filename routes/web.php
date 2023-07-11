@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'teste'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/chamado/{numrat}', [ChamadoController::class, 'index'])->middleware(['auth', 'verified'])->name('chamados.chamado');
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('chamados.dashboard');
+Route::get('/chamados/novo', [ChamadoController::class, 'create'])->middleware(['auth', 'verified'])->name('chamados.novo');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -25,7 +25,7 @@
                             <th scope="col" class="px-6 py-3 w-24">Cliente</th>
                             <th scope="col" class="px-6 py-3 w-24">Lote</th>
                             <th scope="col" class="px-6 py-3 w-2/4">Problema</th>
-                            <th scope="col" class="px-6 py-3 w-24 text-center">Data de Abertura</th>
+                            <th scope="col" class="md:hidden px-6 py-3 w-24 text-center">Data de Abertura</th>
                             <th scope="col" class="px-6 py-3 w-24 text-center">Data de Fechamento</th>
                             <th scope="col" class="px-6 py-3 w-24">status</th>
                         </tr>
@@ -42,7 +42,7 @@
                     <td class="px-6 text-gray-700 dark:text-gray-200 py-4 w-24 text-center">{{ $c->codcli }}</td>
                     <td class="px-6 text-gray-700 dark:text-gray-200 py-4 w-24 text-center">{{ $c->numlote }}</td>
                     <td class="px-6 text-gray-700 dark:text-gray-200 py-4 w-full">{{ $c->problema }}</td>
-                    <td class="px-6 text-gray-700 dark:text-gray-200 py-4 w-24 text-center">{{ date('d/m/Y h:i:s' , strtotime($c->dtabertura)) }}</td>
+                    <td class="sm:hidden px-6 text-gray-700 dark:text-gray-200 py-4 w-24 text-center">{{ date('d/m/Y h:i:s' , strtotime($c->dtabertura)) }}</td>
                     <td class="px-6 text-gray-700 dark:text-gray-200 py-4 w-24 text-center">{{ date('d/m/Y h:i:s' , strtotime(Date('Y/m/d'))) }}</td>
                     <td class="px-6 text-gray-700 dark:text-gray-200 py-4 w-24">{{ $c->numlote }}</td>
                 </tr>
