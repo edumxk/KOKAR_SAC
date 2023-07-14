@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('tratativas', function (Blueprint $table) {
             $table->id();
-            $table->integer('protocolo')->unique();
+            $table->BigInteger('protocolo')->unique();
             $table->foreign('protocolo')->references('protocolo')->on('chamados');
             $table->enum('tipo_1',['CTD', 'comercial', 'financeiro']);
             $table->enum('tipo_2', ['produto', 'dinheiro'])->nullable();

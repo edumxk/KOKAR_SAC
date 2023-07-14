@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('analises', function (Blueprint $table) {
             $table->id();
-            $table->integer('protocolo')->unique();
+            $table->BigInteger('protocolo')->unique();
             $table->foreign('protocolo')->references('protocolo')->on('chamados');
             $table->string('metodo');
             $table->string('numlote');

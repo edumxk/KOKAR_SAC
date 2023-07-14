@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('codcli');
             $table->enum('status', ['abertura', 'chamado', 'analise de produto', 'teste de aplicacao', 'laudo', 'tratativa', 'aprovacao', 'finalizado', 'cancelado', 'reprovado']);
-            $table->integer('protocolo')->unique();
+            $table->BigInteger('protocolo')->unique();
             $table->foreign('protocolo')->references('protocolo')->on('formularios');
             $table->timestamps();
         });

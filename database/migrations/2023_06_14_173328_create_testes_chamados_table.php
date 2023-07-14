@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('testes_chamados', function (Blueprint $table) {
             $table->id();
-            $table->integer('protocolo');
+            $table->BigInteger('protocolo');
             $table->foreign('protocolo')->references('protocolo')->on('chamados');
             $table->unsignedBigInteger('id_teste');
             $table->foreign('id_teste')->references('id')->on('testes');

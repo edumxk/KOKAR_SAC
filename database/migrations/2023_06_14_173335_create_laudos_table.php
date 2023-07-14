@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('laudos', function (Blueprint $table) {
             $table->id();
-            $table->integer('protocolo')->unique();
+            $table->BigInteger('protocolo')->unique();
             $table->foreign('protocolo')->references('protocolo')->on('chamados');
             $table->text('descricao');
             $table->boolean('is_procedente');

@@ -13,21 +13,21 @@ class CabFormulariosTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('cabformularios')->insert(
+        DB::table('cab_formularios')->insert(
             [
-                ['descricao' => 'PATOLOGIA'],
-                ['descricao' => 'TIPO DE CLIENTE'],
-                ['descricao' => 'TIPO DE SUPERFÍCIE'],
-                ['descricao' => 'QUANTOS DIAS DE CURA'],
-                ['descricao' => 'SOLVENTE UTILIZADO'],
-                ['descricao' => 'DILUIÇÃO'],
-                ['descricao' => 'A EMBALAGEM ESTAVA LACRADA?'],
-                ['descricao' => 'O PRODUTO FOI HOMOGENEIZADO POR COMPLETO?'],
-                ['descricao' => 'CONDIÇÕES DA SUPERFÍCIE'],
-                ['descricao' => 'USO DE FUNDO'],
-                ['descricao' => 'NÚMERO DE DEMÃOS'],
-                ['descricao' => 'INTERVALO ENTRE DEMÃOS'],
-                ['descricao' => 'FERRAMENTA UTILIZADA NA APLICAÇÃO']
+                ['descricao' => 'PATOLOGIA', 'tipo' => 'select'],
+                ['descricao' => 'TIPO DE CLIENTE', 'tipo' => 'select'],
+                ['descricao' => 'TIPO DE SUPERFÍCIE', 'tipo' => 'select'],
+                ['descricao' => 'QUANTOS DIAS DE CURA', 'tipo' => 'select'],
+                ['descricao' => 'SOLVENTE UTILIZADO', 'tipo' => 'select'],
+                ['descricao' => 'DILUIÇÃO', 'tipo' => 'select'],
+                ['descricao' => 'A EMBALAGEM ESTAVA LACRADA?', 'tipo' => 'select'],
+                ['descricao' => 'O PRODUTO FOI HOMOGENEIZADO POR COMPLETO?', 'tipo' => 'select'],
+                ['descricao' => 'CONDIÇÕES DA SUPERFÍCIE', 'tipo' => 'select'],
+                ['descricao' => 'USO DE FUNDO', 'tipo' => 'select'],
+                ['descricao' => 'NÚMERO DE DEMÃOS', 'tipo' => 'select'],
+                ['descricao' => 'INTERVALO ENTRE DEMÃOS', 'tipo' => 'select'],
+                ['descricao' => 'FERRAMENTA UTILIZADA NA APLICAÇÃO', 'tipo' => 'select']
             ]
         );
     }

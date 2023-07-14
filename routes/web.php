@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ChamadoController;
+use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ListagemController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,10 +20,13 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 //Route::get('/dashboard', [HomeController::class, 'index'])->name('chamados.dashboard');
 
-Route::get('/', [HomeController::class, 'teste'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/', [ListagemController::class, 'index'])->middleware(['auth', 'verified'])->name('chamados.listagem');
+Route::get('/chamados', [ChamadoController::class, 'index'])->middleware(['auth', 'verified'])->name('chamados.index');
 Route::get('/chamado/{numrat}', [ChamadoController::class, 'index'])->middleware(['auth', 'verified'])->name('chamados.chamado');
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('chamados.dashboard');
-Route::get('/chamados/novo', [ChamadoController::class, 'create'])->middleware(['auth', 'verified'])->name('chamados.novo');
+Route::get('/chamados/novo', [FormularioController::class, 'index'])->middleware(['auth', 'verified'])->name('chamados.novo');
+Route::post('/chamados/novo', [FormularioController::class, 'store'])->middleware(['auth', 'verified'])->name('chamados.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

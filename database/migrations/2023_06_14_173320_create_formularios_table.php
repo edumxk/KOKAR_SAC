@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('formularios', function (Blueprint $table) {
             $table->id();
-            $table->integer('protocolo')->unique();
+            $table->BigInteger('protocolo')->unique()->default(0);
             $table->json('formulario')->nullable();
             $table->enum('status', ["aberto", "fechado"])->default("aberto");
             $table->timestamps();

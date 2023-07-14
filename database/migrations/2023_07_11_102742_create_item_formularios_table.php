@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('itemformularios', function (Blueprint $table) {
+        Schema::create('item_formularios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('idopcao');
-            $table->string('descricao');
+            $table->string('descricaoitem');
             $table->unsignedBigInteger('idformulario')->unsigned();
             $table->timestamps();
-            $table->foreign('idformulario')->references('id')->on('cabformularios');
+            $table->foreign('idformulario')->references('id')->on('cab_formularios');
         });
     }
 
